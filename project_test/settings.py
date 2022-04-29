@@ -18,8 +18,6 @@ BASE_DIR = Path(__file__).resolve().parent
 ROOT_DIR = os.path.dirname(BASE_DIR)
 TEMPLATE_DIR = os.path.join(ROOT_DIR, "templates")
 
-print("TEMPLATE_DIR : ", TEMPLATE_DIR)
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -43,9 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt_test1',
     'mptt_test2',
-    'mptt_test3',
-    'mptt_test4',
+    'treebeard_test',
+
     'mptt',
+    'treebeard',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [

@@ -16,10 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import IndexView
-from mptt_test1.views import CategoryView
+from mptt_test1.views import CategoryView as CategoryView1
+from mptt_test2.views import CategoryView as CategoryView2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
-    path('1/', CategoryView.as_view(), name='category'),
+    path('1/', CategoryView1.as_view(), name='category1'),
+    path('1/', CategoryView2.as_view(), name='category2'),
 ]
