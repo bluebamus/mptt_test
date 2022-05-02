@@ -7,10 +7,16 @@
 </style>
     <ul class="root">
         {% recursetree categories %}
-        <li class="menu">
-            <a>{{ node.name }}</a>
-            {% if not node.is_leaf_node %}
-            <ul class="hide">
+        {% if node.url %}
+            <li class="menu" ><a href="{{node.url}}">{{ node.name }}</a>
+        {% elif node.slug %}
+            <li class="menu" ><a href="{% url 'category3' slug=node.slug %}">{{ node.name }}</a>
+        {% else %}
+            <li class="menu" ><a>{{ node.name }}</a>
+        {% endif %}
+
+        {% if not node.is_leaf_node %}
+            <ul class="hide">                
                 {{ children }}
             </ul>
         {% endif %}

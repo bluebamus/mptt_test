@@ -5,7 +5,8 @@ from mptt.models import MPTTModel, TreeForeignKey
 class Category(MPTTModel):
     name = models.CharField(max_length=64, unique=True)
     parent = TreeForeignKey('self', null=True, blank=True, related_name='children', db_index=True, on_delete=models.CASCADE)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True)
+    url = models.URLField(blank=True)
 
     class MPTTMeta:
         order_insertion_by = ['name']
